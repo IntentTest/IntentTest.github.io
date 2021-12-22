@@ -1,16 +1,27 @@
 test intent hijacking
 <p id="testFBIntent">test fb intent</p>
+<p id="testAppLink">test App Link</p>
 <script>
-var fallbackToStore = function() {
-    window.location.replace('market://details?id=com.myapp.package');
-  };
-var openApp = function() {
-window.location.replace('fb3040888906125350://authroize');
-};
-var triggerAppOpen = function() {
-openApp();
-setTimeout(fallbackToStore, 250);
-};
-var button = document.getElementById('testFBIntent');
-button.onclick = triggerAppOpen;
+    var fallbackToStore = function () {
+        window.location.replace('market://details?id=com.myapp.package');
+    };
+    var openFBIntent = function () {
+        window.location.replace('fb3040888906125350://authroize');
+    };
+    var triggerFBIntent = function () {
+        openFBIntent();
+        setTimeout(fallbackToStore, 250);
+    };
+    var button = document.getElementById('testFBIntent');
+    button.onclick = triggerFBIntent;
+
+    var openAppLink = function () {
+        window.location.replace('https://intenttest.github.io/proposed_path123');
+    };
+    var triggerAppLink = function () {
+        openAppLink();
+        setTimeout(fallbackToStore, 250);
+    };
+    var button = document.getElementById('testAppLink');
+    button.onclick = triggerAppLink;
 </script>
