@@ -1,1 +1,16 @@
-Hello World
+test intent hijacking
+<p id="testFBIntent">test fb intent</p>
+<script>
+var fallbackToStore = function() {
+    window.location.replace('market://details?id=com.myapp.package');
+  };
+var openApp = function() {
+window.location.replace('fb3040888906125350://authroize');
+};
+var triggerAppOpen = function() {
+openApp();
+setTimeout(fallbackToStore, 250);
+};
+var button = document.getElementById('testFBIntent');
+button.onclick = triggerAppOpen;
+</script>
