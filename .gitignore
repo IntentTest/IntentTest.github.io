@@ -1,0 +1,2 @@
+# ignore the private github token for pushing to repo
+github-personal-access-token.txt
